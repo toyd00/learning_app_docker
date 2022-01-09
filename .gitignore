@@ -1,0 +1,6 @@
+learning_app/venv
+__pycache__
+djangodatabase
+.env.dev
+learning_app/static/admin
+mysql/*

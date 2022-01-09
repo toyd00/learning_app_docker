@@ -1,0 +1,57 @@
+#sign_list {
+    position: absolute;
+    top: 130px;
+}
+
+#answer_alert {
+    position: absolute;
+    top: 160px;
+}
+
+.remove_sing_display {
+    margin-right: 20px;
+    border: 1px solid black;
+    border-radius:5px ;
+}
+
+.formula, .ans {
+    display: inline;
+}
+
+#btn_make_prob {
+    position: relative;
+    top: 100px;
+}
+
+.formula {
+    padding-right: 5px;
+}
+
+.ans {
+    left: 80px;
+    width: 70px;
+}
+
+#content {
+    position: relative;
+    top: 100px;
+}
+
+#show_result {
+    position: relative;
+    top: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+

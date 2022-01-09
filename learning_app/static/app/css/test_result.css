@@ -1,0 +1,14 @@
+#correct-count {
+  color: red;
+  margin-bottom: 50px;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.correct {
+  color:  cyan;
+  font-weight: bold;
+}

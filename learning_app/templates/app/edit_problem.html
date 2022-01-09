@@ -1,0 +1,6 @@
+{% comment %} {% extends 'app/base.html' %} {% endcomment %}
+{% include 'app/make_edit_problem.html' with name="edit" %}
+
+<form method='post' action="{% url 'app:delete_problem' pk=problem.pk %}" id='remove-button'>{% csrf_token %}
+    <button>削除する</button>
+ </form>

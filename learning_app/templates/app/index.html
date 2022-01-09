@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+  <div class="explain-part">
+      <img src="static/app/image/computer.jpg">
+      <h1>問題を作って解いて楽しもう</h1>
+      <h4>
+        e-Problemsはユーザ同士で問題を作りあって解きあうためのプラットフォームです。
+      </h4>
+  </div>
+  <div class="content">
+      <h3><a href="{% url 'app:make_problem' %}">問題を作る</a></h3>
+      <h3><a href="{% url 'app:my_problem' %}">問題を編集する</a></h3>
+      <h3><a href="{% url 'app:subject' %}">問題を解く</a></h3>
+      <h3><a href="{% url 'app:calculation_list' %}">計算問題を解く</a></h3>
+      <h3><a href="{% url 'app:show_userList' %}">ユーザ一覧</a></h3>
+  </div>
+
+  <footer>
+    <a href="{% url 'app:contact' %}" id='contact'>お問い合わせ</a>
+    <a href='https://youtu.be/rdK-0RdWkJg' id='service'>サービス内容について</a>
+  </footer>
+{% endblock %}
+
+</body>
+</html>

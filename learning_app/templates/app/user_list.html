@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+
+    {% for user in all_users %}
+        
+        {% if user.username != '匿名ユーザ' %}
+            <p><a href="{% url 'app:my_page' pk=user.pk %}">{{ user }}</a></p>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}

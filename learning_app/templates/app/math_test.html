@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <form mehod='post' action="{% url 'app:score_math_test' %}">
+    {% for ans in ans_list %}
+        {{ forloop.counter }}、{{ q_text }}
+        <input></input>
+    {% endfor %}
+  <form>
+{% endblock  %}

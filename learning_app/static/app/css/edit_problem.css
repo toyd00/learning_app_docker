@@ -1,0 +1,13 @@
+.hidden {
+  display: none;
+}
+
+.problem-form {
+  display: inline;
+  margin-right: 15px;
+}
+
+.remove {
+  margin-left: 25px;
+  margin-right: 10px;
+}

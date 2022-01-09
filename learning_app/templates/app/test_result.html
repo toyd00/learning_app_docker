@@ -1,0 +1,78 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>テスト結果</h1>
+    
+    {% if request.user.is_authenticated %}
+        <h1 id='correct-count'>{{ request.user.username }}さん、{{ correct_count }}個正解です。</h1>
+        <form action="{% url 'app:index' %}">
+            <button>ホーム画面へ</button>
+        </form>
+    {% else %}
+        <h1 id='correct-count'>匿名ユーザさん、{{ correct_count }}個正解です。</h1>
+        <h3>ログインしてさらに楽しみましょう！！</h3>
+        <form action="{% url 'app:login' %}">
+            <button>ログインページへ</button>
+        </form>
+        <p>または新規登録しますか？</p>
+        <form action="{% url 'app:signup' %}">
+            <button>新規登録へ</button>
+        </form>
+    {% endif %}
+
+
+    <h1>テストの答え</h1>
+    {% for problem in problems %}
+    <fieldset>
+        <p>{{ problem.content }}</p>
+        {% with  selected_choice=selected_choice_list.pop %}
+
+        {% for choice in problem.choice_set.all %}
+            {% if selected_choice == forloop.counter %}
+                {% if problem.correct_choice == forloop.counter %}
+                    <label class='correct'>
+                        <input type='radio' name='choice-{{ forloop.parentloop.counter }}' checked disabled>{{ forloop.counter }}、{{ choice.content }}
+                    </label>
+                {% else %}
+                    <label>
+                        <input type='radio' name='choice-{{ forloop.parentloop.counter }}' checked disabled>{{ forloop.counter }}、{{ choice.content }}
+                    </label>
+                {% endif %}
+            {% else %}
+                {% if problem.correct_choice == forloop.counter %}
+                    <label class='incorrect'>
+                        <input type='radio'  name='choice-{{ forloop.parentloop.counter }}' disabled>{{ forloop.counter }}、{{ choice.content }}
+                    </label>
+                {% else %}
+                    <label>
+                        <input type='radio' class='red'  name='choice-{{ forloop.parentloop.counter }}' form='choice' disabled>{{ forloop.counter }}、{{ choice.content }}
+                    </label>
+                {% endif %}
+            {% endif %}
+            <br />
+
+        {% endfor %}
+        {% endwith %}
+        <form class="like_button" data-id={{ problem.pk }} data-value="good" action="{% url 'app:like' pk=problem.pk %}" method='post'>{% csrf_token %}
+            <button id="button_{{ problem.pk }}">いいね</button>
+        </form>
+        <p id="likeCount_{{ problem.pk }}">{{ problem.like.count }}いいね</p>
+        {% if isCorrect_list2.pop %}
+            <h3 class='correct'>正解！！答えは{{ problem.correct_choice}}です</h3>
+        {% else %}
+            <h3 class='incorrect'>不正解です。答えは{{ problem.correct_choice}}です</h3>
+        {% endif %}
+    </fieldset>
+    {% endfor %}
+
+
+
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type='text/javascript' src="{% static 'app/js/base.js' %}"></script>
+<script type='text/javascript' src="{% static 'app/js/mini_test.js' %}"></script>
+
+{% endblock %}

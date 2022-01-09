@@ -1,0 +1,86 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% if name == 'make' %}
+        <h2 id='display' data-id='make'>問題を作成する</h2>
+    {% else %}
+        <h2 id='display' data-id='edit'>問題を編集する</h2>
+    {% endif %}
+
+    <form id='get_title' method='post' action="{% url 'app:get_title' %}">{% csrf_token %}
+        <p><label>分野：{{ form.subject }}</label></p>
+    </form>
+    <label>タイトル：
+        {% if  name == 'make' %}
+            <select name="title" required id="id_title" form="done">
+                <option>まず分野を選択してください</option>
+            </select>
+        {% else %}
+            <label>{{ form.title }}</label>
+        {% endif %}
+    </label>
+    <p><label>問題の難易度：{{ form.type }}</label></p>
+    <p><label>問題文：{{ form.content }}</label></p>
+
+    <div id='options'>
+        {% if name == 'make' %}
+            <h2 id='ans-choice'>正解の選択肢：１</h2>
+        {% else %}
+            <h2 id='ans-choice'>正解の選択肢：{{ problem.correct_choice }}</h2>
+        {% endif %}
+
+        {% for form in formset %}
+            <div id='form-set-{{ forloop.counter }}' class='form-set'>
+                <div class="problem-form" id='form-{{ forloop.counter }}' style='margin-right:10px;'>
+                        {{ form }}
+                </div>
+                <button class="remove"  id='remove-{{ forloop.counter }}' data-id='{{ forloop.counter }}' style='margin-right: 5px;'>削除</button>
+                <input type='radio' class='answer' id='answer-{{ forloop.counter }}' name='answer' value={{ forloop.counter }}>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id='form-set' class='hidden'></div>
+    <input type='radio' id='answer-button' name='answer' class='hidden'>
+    <div id='empty-form' class='hidden'>{{ formset.empty_form }}</div>
+    <button id='remove-button' class='hidden'>削除</button>
+
+    <button class='add'>追加</button>
+    <br />
+
+
+
+    {% if name == "make" %}
+        <form method='post' class={{ name }} action="{% url 'app:make_problem'  %}" id='done'>{% csrf_token %}
+            {{ formset.management_form }}
+            <input type='submit' value="作成完了">
+        </form>
+    {% else %}
+        <form method='post' class={{ name }} action="{% url 'app:edit_problem' pk=problem.pk %}" id='done'>{% csrf_token %}
+            {{ formset.management_form }}
+            <input type='submit' value="作成完了">
+        </form>
+    {% endif %}
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+<!-- {% comment %} <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="jquery.star-rating-svg.js">
+  $(".my-rating").starRating({
+  initialRating: 4,
+  strokeColor: '#894A00',
+  strokeWidth: 10,
+  starSize: 25
+});
+</script> {% endcomment %} -->
+
+
+<script type='text/javascript' src="{% static 'app/js/base.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/js/make_problem.js' %}"></script>
+{% endblock  %}
+
+

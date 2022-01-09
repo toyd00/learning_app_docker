@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+
+.like_button {
+  padding: 10px 0px 0px 0px;
+}
+
+.like_count {
+  display: inline;
+  padding-right: 20px;
+}
+
+.author {
+  display: inline;
+}

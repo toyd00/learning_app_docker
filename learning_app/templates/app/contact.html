@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+
+<h1>お問い合わせフォーム</h1>
+<form method='POST' action="{% url 'app:contact' %}">{% csrf_token %}
+
+{{ form.as_p }}
+<input type="submit" value="送信">
+
+{% endblock content %}

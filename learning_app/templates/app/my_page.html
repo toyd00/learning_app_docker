@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static  %}
+
+
+{% block content %}
+    <h1>{{ user }}さんのマイページ</h1>
+    <h3>作成した問題の数：{{  making_problem_count }}</h3>
+    <h3>正解した問題の数：{{ correct_answer_count }}</h3>
+    <!-- <h3>間違えた問題の数：{{ incorrect_answer_count  }}</h3> -->
+    <br />
+    <h3>計算テストの結果</h3>
+    {% for calTest_result in calTest_result_list  %}
+        <fieldset>
+            {% if calTest_result.add %}
+                <span>足し算</span>
+            {% endif %}
+            {% if calTest_result.sub %}
+                <span>引き算</span>
+            {% endif %}
+            {% if calTest_result.mul %}
+                <span>かけ算</span>
+            {% endif %}
+            {% if calTest_result.div %}
+                <span>割り算</span>
+            {% endif %}
+
+            <br />
+            正解数：{{ calTest_result.correct_count }}／１０
+        </fieldset>
+    {% endfor %}
+{% endblock  %}

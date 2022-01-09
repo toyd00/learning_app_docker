@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: django_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: django_db
+      MYSQL_USER: taishi
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    expose:
+      - 3306
+
+  gunicorn:
+    container_name: django_app
+    build: ./learning_app
+    #command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./learning_app/:/usr/src/app/
+      - gunicorn:/var/run/gunicorn
+    ports:
+      - 8000:8000
+    env_file:
+      - ./learning_app/.env.dev
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: ./docker_nginx/Dockerfile
+    #command: python3 manage.py collectstatic --noinput
+    ports:
+      - 80:80
+    volumes:
+      - ./learning_app/:/usr/src/app/
+      - ./nginx:/etc/nginx
+      - gunicorn:/var/run/gunicorn
+
+
+volumes:
+  gunicorn:
+    driver: local
+

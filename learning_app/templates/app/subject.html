@@ -1,0 +1,9 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+    {% for subject in subject_list %}
+        <a href="{% url 'app:test' pk=subject.pk %}"><h3>{{ subject }}（{{ subject.problem_set.all|length }}問作成されています）</h3></a>
+    {% endfor %}
+
+{% endblock %}
