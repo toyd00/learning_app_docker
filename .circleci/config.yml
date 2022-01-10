@@ -31,7 +31,7 @@ jobs:
       - checkout
       # CircleCIに登録した秘密鍵を呼び出す。
       - add_ssh_keys:
-        fingerprint:
+        fingerprints:
           - "5b:b8:2f:48:a5:e0:21:9a:87:33:66:a6:46:f0:1e:fa"
       - run: ssh ${USER_NAME}@${HOST_NAME} 'cd todoList && git pull && docker-compose run python ./manage.py migrate'
 
