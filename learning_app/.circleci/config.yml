@@ -2,6 +2,7 @@
 version: 2
 jobs:
   build:
+    working_directory: learning_app_container
     machine:
       image: circleci/classic:edge
     steps:
