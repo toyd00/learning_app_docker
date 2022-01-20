@@ -17,6 +17,7 @@ RUN pip3 install --upgrade pip \
 
 COPY ./learning_app .
 
+
 RUN echo $ENV_FILE | base64 -di > .env.dev
 RUN python manage.py collectstatic --noinput
 

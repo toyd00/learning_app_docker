@@ -38,7 +38,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./learning_app/:/usr/src/app/
+      #- ./learning_app/:/usr/src/app/
       - ./nginx:/etc/nginx
       - gunicorn:/var/run/gunicorn
 
