@@ -34,7 +34,7 @@ services:
     build:
       context: .
       dockerfile: ./docker_nginx/Dockerfile
-    command: echo $ENV_FILE | base64 -di > .env.dev
+    #command: echo $ENV_FILE | base64 -di > .env.dev
     ports:
       - 80:80
     volumes:
