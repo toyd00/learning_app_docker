@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: docker-compose up
-          command: docker-compose up
+          command: docker-compose up -d
       - run:
           name: sleep for launch db to migrate at Django
           command: sleep 10
