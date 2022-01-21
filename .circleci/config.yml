@@ -19,7 +19,7 @@ jobs:
           command: ls mysql
       - run:
           name: migrate
-          #command: docker-compose ps && docker-compose logs -f
+          #command: docker-compose ps && docker-compose logs -f 
           command: docker-compose ps && docker-compose run gunicorn python ./manage.py migrate
       - run:
           name: test
