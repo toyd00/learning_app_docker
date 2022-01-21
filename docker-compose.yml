@@ -12,8 +12,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
     ports:
       - "3306:3306"
-    volumes:
-      - ./mysql:/var/lib/mysql
+    #volumes:
+    #  - ./mysql:/var/lib/mysql
     expose:
       - 3306
 
@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: ./learning_app/Dockerfile
-    #command: python manage.py runserver 0.0.0.0:8000
+    #command: python manage.py migrate
     #command: echo $ENV_FILE | base64 -di > .env.dev
     volumes:
       #- ./learning_app/:/usr/src/app/
