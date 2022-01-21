@@ -14,7 +14,7 @@ COPY ./learning_app .
 COPY ./learning_app/requirements-dev.txt .
 RUN pip install -r requirements-dev.txt
 
-#RUN echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1AOCkmZTcjcApERUJVRz1GYWxzZQpBTExPV0VEX0hPU1RTPWxvY2FsaG9zdCwxMjcuMC4wLjEsZ3VuaWNvcm4tZGphbmdvCkRBVEFCQVNFX1VSTD1teXNxbDovL3RhaXNoaTpwYXNzd29yZEBkYjozMzA2L2RqYW5nb19kYg== | base64 -d > .env.dev
+RUN echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1AOCkmZTcjcApERUJVRz1UcnVlCkFMTE9XRURfSE9TVFM9bG9jYWxob3N0LDEyNy4wLjAuMQpEQVRBQkFTRV9VUkw9bXlzcWw6Ly90YWlzaGk6VGFpc2hpT21hY2hpMDAuQDEyNy4wLjAuMTozMzA2L2RqYW5nb19kYg== | base64 -d > .env.dev
 
 RUN ls -a
 RUN pwd
