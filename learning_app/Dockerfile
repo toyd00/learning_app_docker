@@ -19,6 +19,5 @@ RUN echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1
 RUN ls -a
 RUN pwd
 RUN cat .env.dev
-RUN python manage.py runserver 0.0.0.0:8000
 RUN mkdir -p /var/run/gunicorn
 CMD ["gunicorn", "learning.wsgi", "--bind=unix:/var/run/gunicorn/gunicorn.sock"]
