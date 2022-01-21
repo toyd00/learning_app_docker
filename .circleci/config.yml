@@ -16,8 +16,8 @@ jobs:
           command: sleep 3
       - run:
           name: migrate
-          #command: docker-compose ps && docker-compose logs -f
-          command: docker-compose run django_app python ./manage.py migrate
+          command: docker-compose ps #&& docker-compose logs -f
+          #command: docker-compose run django_app python ./manage.py migrate
       - run:
           name: test
           command: docker-compose run django_app python ./manage.py test
