@@ -16,7 +16,7 @@ jobs:
           command: sleep 3
       - run:
           name: check
-          command: ls
+          command: ls mysql
       - run:
           name: migrate
           #command: docker-compose ps && docker-compose logs -f
