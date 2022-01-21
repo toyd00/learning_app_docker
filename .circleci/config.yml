@@ -13,7 +13,7 @@ jobs:
           command: docker-compose up && sleep 3
       - run:
           name: sleep for launch db to migrate at Django
-          command: sleep 3
+          command: sleep 10
       - run:
           name: check
           command: ls mysql
