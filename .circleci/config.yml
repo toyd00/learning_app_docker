@@ -13,10 +13,11 @@ jobs:
           command: docker-compose up -d
       - run:
           name: sleep for launch db to migrate at Django
-          command: sleep 10
+          command: sleep 3
       - run:
           name: migrate
           command: docker-compose ps
+          command: docker-compose logs -f
           #command: docker-compose run django_app python ./manage.py migrate
       - run:
           name: test
