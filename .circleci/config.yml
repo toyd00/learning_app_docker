@@ -1,4 +1,4 @@
-# circleCIのバージョン指定
+# circleCIのバージョン指定 
 version: 2.1
 jobs:
   build:
@@ -17,10 +17,10 @@ jobs:
       - run:
           name: migrate
           #command: docker-compose ps && docker-compose logs -f
-          command: docker-compose ps && docker-compose run django_app python ./manage.py migrate
+          command: docker-compose ps && docker-compose run gunicorn python ./manage.py migrate
       - run:
           name: test
-          command: docker-compose run django_app python ./manage.py test
+          command: docker-compose run gunicorn python ./manage.py test
       - run:
           name: docker-compose down
           command: docker-compose down
