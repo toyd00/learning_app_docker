@@ -10,7 +10,8 @@ RUN apk update \
     && apk add --no-cache mariadb-dev
 
 RUN pip install --upgrade pip
-COPY ./requirements-dev.txt .
+#COPY ./requirements-dev.txt .
+COPY ./learning_app .
 RUN pip install -r requirements-dev.txt
 
 RUN echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1AOCkmZTcjcApERUJVRz1GYWxzZQpBTExPV0VEX0hPU1RTPWxvY2FsaG9zdCwxMjcuMC4wLjEsZ3VuaWNvcm4tZGphbmdvCkRBVEFCQVNFX1VSTD1teXNxbDovL3RhaXNoaTpwYXNzd29yZEBkYjozMzA2L2RqYW5nb19kYg== | base64 -d > .env.dev
