@@ -37,7 +37,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
           - "f9:9f:6d:cc:bd:1f:2d:28:8b:be:15:bd:60:4d:5d:ff"
-      - run: ssh -vvv ${USER_NAME}@${HOST_NAME} 'cd todoList && git pull && docker-compose run python ./manage.py migrate'
+      - run: ssh -vvv ubuntu@ec2-13-112-218-57.ap-northeast-1.compute.amazonaws.com 'cd todoList && git pull && docker-compose run python ./manage.py migrate'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
