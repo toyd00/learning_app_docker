@@ -21,7 +21,6 @@ services:
     container_name: django_app
     build: ./learning_app
     #command: python manage.py runserver 0.0.0.0:8000
-    command: echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1AOCkmZTcjcApERUJVRz1GYWxzZQpBTExPV0VEX0hPU1RTPWxvY2FsaG9zdCwxMjcuMC4wLjEsZ3VuaWNvcm4tZGphbmdvCkRBVEFCQVNFX1VSTD1teXNxbDovL3RhaXNoaTpwYXNzd29yZEBkYjozMzA2L2RqYW5nb19kYg== | base64 -di > .env.dev
     #command: echo $ENV_FILE | base64 -di > .env.dev
     volumes:
       - ./learning_app/:/usr/src/app/
