@@ -10,6 +10,7 @@ RUN apk update \
     && apk add --no-cache mariadb-dev
 
 RUN pip install --upgrade pip
+COPY ./learning_app .
 COPY ./requirements-dev.txt .
 RUN pip install -r requirements-dev.txt
 
