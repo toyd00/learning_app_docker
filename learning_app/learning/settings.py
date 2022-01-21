@@ -5,7 +5,7 @@ import environ
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 env = environ.Env()
-os.path.exists('.env.dev')
+
 env.read_env(os.path.join(BASE_DIR, '.env.dev'))
 
 # Quick-start development settings - unsuitable for production
