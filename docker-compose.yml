@@ -25,7 +25,7 @@ services:
     #command: python manage.py runserver 0.0.0.0:8000
     #command: echo $ENV_FILE | base64 -di > .env.dev
     volumes:
-      - ./learning_app/:/usr/src/app/
+      #- ./learning_app/:/usr/src/app/
       - gunicorn:/var/run/gunicorn
     ports:
       - 8000:8000
