@@ -21,14 +21,14 @@ services:
     container_name: django_app
     build: ./learning_app
     #command: python manage.py runserver 0.0.0.0:8000
-    command: echo $ENV_FILE | base64 -di > .env.dev
+    #command: echo $ENV_FILE | base64 -di > .env.dev
     volumes:
       - ./learning_app/:/usr/src/app/
       - gunicorn:/var/run/gunicorn
     ports:
       - 8000:8000
-    env_file:
-      - ./learning_app/.env.dev
+    #env_file:
+    #  - ./learning_app/.env.dev
 
   nginx:
     container_name: nginx
