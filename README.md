@@ -1,5 +1,7 @@
 # learning_app  
 
+CircleCIによるCI/CD環境の構築を行いました。GitHubにpushするとテストと本番環境へのデプロイが行われます。
+
 ・URL（AWS (EC2, Route53...)＋Nginx（webサーバ）＋ Gunicorn（appサーバ））  
 https://e-problems.net/
 
@@ -35,7 +37,7 @@ Twitterで問題を共有するためのボタン
 選択肢の数を変更できる（動的フォームの作成）  
 いいねボタンをAjaxを用いて実装  
 問題の分野によって問題のタイトルが動的に変化する（Ajaxを利用）  
-テスト自動作成機能
+計算問題の自動作成機能
 
 ・今後の課題  
 分からない問題の質問を行う機能の追加  
