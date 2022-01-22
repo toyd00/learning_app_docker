@@ -22,7 +22,7 @@
     </div>
     <div class="header-menu">
         {% if request.user.is_authenticated %}
-            <a href="{% url 'app:my_page' pk=request.user.pk %}">マイページへ</a>
+            <a href="{% url 'app:my_page' pk=request.user.pk %}">マイページ</a>
             <a href="{% url 'app:logout' %}">ログアウト</a>
         {% else %}
             <a href="{% url 'app:signup' %}">新規作成</a>
