@@ -36,8 +36,8 @@ jobs:
       # CircleCIに登録した秘密鍵を呼び出す。
       - add_ssh_keys:
           fingerprints:
-          - "f9:9f:6d:cc:bd:1f:2d:28:8b:be:15:bd:60:4d:5d:ff"
-      - run: ssh -vvv ubuntu@ec2-13-112-218-57.ap-northeast-1.compute.amazonaws.com 'cd learning_app_docker && git pull && docker-compose run gunicorn python ./manage.py migrate'
+          - "fb:2c:4b:39:fd:e5:22:82:99:f0:47:d8:01:4d:93:6b"
+      - run: ssh -vvv ubuntu@ec2-13-112-235-158.ap-northeast-1.compute.amazonaws.com 'cd learning_app_docker && git pull && docker-compose run gunicorn python ./manage.py migrate'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
