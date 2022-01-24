@@ -23,7 +23,7 @@ services:
       context: .
       dockerfile: ./learning_app/Dockerfile
     #command: python manage.py migrate
-    #command: echo $ENV_FILE | base64 -di > .env.dev
+    command: echo $ENV_FILE | base64 -di > .env.dev
     volumes:
       #- ./learning_app/:/usr/src/app/   これをやるとリモートで.env.devファイルがなくなる
       - gunicorn:/var/run/gunicorn

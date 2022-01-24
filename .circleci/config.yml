@@ -15,9 +15,9 @@ jobs:
           name: sleep for launch db to migrate at Django
           command: sleep 15
       - run:
-          name: output
+          name: build
           #command: docker-compose ps && docker-compose logs -f
-          command: echo ${ENV_FILE}
+          command: docker-compose up 
       - run:
           name: migrate
           #command: docker-compose ps && docker-compose logs -f
