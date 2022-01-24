@@ -24,6 +24,7 @@ services:
       dockerfile: ./learning_app/Dockerfile
       args:
         - ENV_FILE=${ENV_FILE}
+    command: echo ${ENV_FILE}
     #command: echo ${ENV_FILE} | base64 -di > /usr/src/app/.env.dev
     volumes:
       #- ./learning_app/:/usr/src/app/   これをやるとリモートで.env.devファイルがなくなる
