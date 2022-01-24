@@ -12,11 +12,11 @@ jobs:
           name: make .env.dev
           command: echo ENV_FILE=${ENV_FILE} > .env
       - run:
-          name: output
-          command: ls -a && cat .env && docker-compose ps
-      - run:
           name: docker-compose up
           command: docker-compose up -d
+      - run:
+          name: output
+          command: docker-compose ps
       - run:
           name: sleep for launch db to migrate at Django
           command: sleep 15
