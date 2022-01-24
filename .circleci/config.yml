@@ -17,7 +17,7 @@ jobs:
       - run:
           name: migrate
           #command: docker-compose ps && docker-compose logs -f
-          command: docker-compose ps && docker-compose run gunicorn python ./manage.py migrate
+          command: docker-compose ps && docker-compose run gunicorn echo ${ENV_FILE} | base64 -d > env.dev && docker-compose run gunicorn python ./manage.py migrate
       - run:
           name: test
           command: docker-compose run gunicorn python ./manage.py test
