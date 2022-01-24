@@ -16,7 +16,6 @@ jobs:
           command: sleep 15
       - run:
           name: migrate
-          #command: docker-compose ps && docker-compose logs -f
           command: docker-compose run -e ENV_FILE=${ENV_FILE} gunicorn python ./manage.py migrate && docker-compose ps
       - run:
           name: test
