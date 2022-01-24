@@ -19,12 +19,12 @@ services:
 
   gunicorn:
     container_name: django_app
-    environment:
-      - ENV_FILE=${ENV_FILE}
     build:
       context: .
       dockerfile: ./learning_app/Dockerfile
-    #command: echo $ENV_FILE | base64 -di > /usr/src/app/.env.dev
+      args:
+        - ENV_FILE=${ENV_FILE}
+    #command: echo ${ENV_FILE} | base64 -di > /usr/src/app/.env.dev
     volumes:
       #- ./learning_app/:/usr/src/app/   これをやるとリモートで.env.devファイルがなくなる
       - gunicorn:/var/run/gunicorn
