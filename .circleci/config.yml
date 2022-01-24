@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: make .env.dev
-          command: echo ${ENV_FILE} | base64 -d > .env
+          command: echo ENV_FILE=${ENV_FILE} > .env
       - run:
           name: docker-compose up
           command: docker-compose up -d
