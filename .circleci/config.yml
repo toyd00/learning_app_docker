@@ -9,6 +9,9 @@ jobs:
 # Djangoのテストを実行
       - checkout
       - run:
+          name: make .env.dev
+          command: echo ${ENV_FILE} | base64 -d > .env.dev
+      - run:
           name: docker-compose up
           command: docker-compose up -d
       - run:
