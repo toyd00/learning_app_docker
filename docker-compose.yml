@@ -24,9 +24,6 @@ services:
       dockerfile: ./learning_app/Dockerfile
       args:
         - ENV_FILE=${ENV_FILE}
-        - X=50000
-    command: echo ${ENV_FILE}
-    #command: echo ${ENV_FILE} | base64 -di > /usr/src/app/.env.dev
     volumes:
       #- ./learning_app/:/usr/src/app/   これをやるとリモートで.env.devファイルがなくなる
       - gunicorn:/var/run/gunicorn
@@ -40,7 +37,8 @@ services:
     build:
       context: .
       dockerfile: ./docker_nginx/Dockerfile
-    #command: echo $ENV_FILE | base64 -di > .env.dev
+      args:
+        - ENV_FILE=${ENV_FILE}
     ports:
       - 80:80
     volumes:
