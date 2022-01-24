@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: make .env.dev
-          command: echo ENV_FILE=${ENV_FILE} > .env
+          command: echo ENV_FILE=55555 > .env
       - run:
           name: output
           command: ls -a && cat .env && docker-compose config
