@@ -13,7 +13,7 @@ jobs:
           command: echo ENV_FILE=${ENV_FILE} > .env
       - run:
           name: output
-          command: ls -a && cat .env
+          command: ls -a && cat .env && docker-compose config
       - run:
           name: docker-compose up
           command: docker-compose up -d
