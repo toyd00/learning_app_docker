@@ -15,10 +15,6 @@ jobs:
           name: sleep for launch db to migrate at Django
           command: sleep 15
       - run:
-          name: build
-          #command: docker-compose ps && docker-compose logs -f
-          command: docker-compose up 
-      - run:
           name: migrate
           #command: docker-compose ps && docker-compose logs -f
           command: docker-compose run -e ENV_FILE=${ENV_FILE} gunicorn python ./manage.py migrate && docker-compose ps
