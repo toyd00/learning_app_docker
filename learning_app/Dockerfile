@@ -16,8 +16,5 @@ RUN pip install -r requirements-dev.txt
 
 #RUN echo U0VDUkVUX0tFWT03dnU4XmI9dGk3My0kOXBhLWcqNW5mZnZ5ZXchaThrPXEzaHpobStteT1AOCkmZTcjcApERUJVRz1UcnVlCkFMTE9XRURfSE9TVFM9bG9jYWxob3N0LDEyNy4wLjAuMSxndW5pY29ybi1kamFuZ28KREFUQUJBU0VfVVJMPW15c3FsOi8vdGFpc2hpOnBhc3N3b3JkQGRiOjMzMDYvZGphbmdvX2Ri | base64 -d > .env.dev
 
-RUN ls -a
-RUN pwd
-RUN cat .env.dev
 RUN mkdir -p /var/run/gunicorn
 CMD ["gunicorn", "learning.wsgi", "--bind=unix:/var/run/gunicorn/gunicorn.sock"]
