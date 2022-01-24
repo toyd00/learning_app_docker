@@ -19,13 +19,12 @@ services:
 
   gunicorn:
     container_name: django_app
-    environment:
-        - X=55555
     build:
       context: .
       dockerfile: ./learning_app/Dockerfile
       args:
         - ENV_FILE=${ENV_FILE}
+        - X=50000
     command: echo ${ENV_FILE}
     #command: echo ${ENV_FILE} | base64 -di > /usr/src/app/.env.dev
     volumes:
