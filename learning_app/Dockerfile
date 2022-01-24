@@ -14,6 +14,7 @@ COPY ./learning_app .
 COPY ./learning_app/requirements-dev.txt .
 RUN pip install -r requirements-dev.txt
 
+RUN echo ${ENV_FILE}
 RUN echo ${ENV_FILE} | base64 -d > .env.dev
 
 RUN mkdir -p /var/run/gunicorn
