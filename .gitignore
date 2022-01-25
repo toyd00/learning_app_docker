@@ -2,5 +2,6 @@ learning_app/venv
 __pycache__
 djangodatabase
 .env.dev
+.env
 learning_app/static/admin
 mysql/*

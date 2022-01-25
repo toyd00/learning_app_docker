@@ -2,8 +2,13 @@
 
 CircleCIによるCI/CD環境の構築を行いました。GitHubにpushするとテストと本番環境へのデプロイが行われます。
 
-・URL（AWS (EC2, Route53...)＋Nginx（webサーバ）＋ Gunicorn（appサーバ））  
-https://e-problems.net/
+
+
+・本番環境：AWS (EC2, VPC, Route53...)＋Nginx（webサーバ）＋ Gunicorn（appサーバ）＋MySQL(dbサーバ））  
+3つのサーバはそれぞれ異なるDockerコンテナで起動しています。  
+
+・URL:
+http://e-problems.net/  
 
 ・サービスの説明動画  
 https://youtu.be/rdK-0RdWkJg
