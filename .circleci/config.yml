@@ -39,7 +39,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
           - "fb:2c:4b:39:fd:e5:22:82:99:f0:47:d8:01:4d:93:6b"
-      - run: ssh -vvv ${USER_NAME}@${HOST_NAME} 'cd learning_app_docker && git pull && sudo docker-compose build && sudo docker-compose up -d && sudo docker-compose run gunicorn python ./manage.py migrate'
+      - run: ssh -vvv ${USER_NAME}@${HOST_NAME} 'cd learning_app_docker && git pull && sudo docker-compose build && sleep 15 && sudo docker-compose up -d && sudo docker-compose run gunicorn python ./manage.py migrate'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
