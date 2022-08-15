@@ -10,9 +10,6 @@ CircleCIによるCI/CD環境の構築を行いました。GitHubにpushすると
 ・URL:
 http://e-problems.net/  
 
-・サービスの説明動画  
-https://youtu.be/rdK-0RdWkJg
-
 
 テストアカウント  
 メールアドレス：test@gmail.com  
