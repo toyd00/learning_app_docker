@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/learning_app_container
     machine:
-      image: cimg/base:2022.08
+      image: ubuntu-2004:202111-02
     steps:
 # Djangoのテストを実行
       - checkout
@@ -12,8 +12,8 @@ jobs:
           name: make .env.dev
           command: echo ENV_FILE=${ENV_FILE} > .env
       - run:
-          name: docker compose up
-          command: docker compose up -d
+          name: docker-compose up
+          command: docker-compose up -d
       - run:
           name: output
           command: docker-compose ps
