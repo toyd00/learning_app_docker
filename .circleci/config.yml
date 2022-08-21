@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/learning_app_container
     machine:
-      image: true
+      image: cimg/base:stable
     steps:
 # Djangoのテストを実行
       - checkout
