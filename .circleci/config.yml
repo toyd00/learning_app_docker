@@ -12,8 +12,8 @@ jobs:
           name: make .env.dev
           command: echo ENV_FILE=${ENV_FILE} > .env
       - run:
-          name: docker-compose up
-          command: docker-compose up -d
+          name: docker compose up
+          command: docker compose up -d
       - run:
           name: output
           command: docker-compose ps
